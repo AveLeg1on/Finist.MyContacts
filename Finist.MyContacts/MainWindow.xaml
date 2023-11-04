@@ -1,0 +1,150 @@
+﻿<Window x:Class="Finist.MyContacts.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Finist.MyContacts"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="750" Width="800"
+        MinHeight="500" MinWidth="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResizeWithGrip"
+        WindowStyle="None"
+        AllowsTransparency="True"  >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+        <i:InvokeCommandAction Command="{Binding CreateDBCommand}"/>
+        </i:EventTrigger>
+       
+    </i:Interaction.Triggers>
+
+    <Border Background="{StaticResource Color1}"
+            BorderThickness="0"
+    >
+        <!--Перемещения окна-->
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="MouseLeftButtonDown">
+                <i:InvokeCommandAction Command="{Binding DragMoveCommand}"/>
+            </i:EventTrigger>
+            <i:EventTrigger EventName="MouseEnter">
+                <i:InvokeCommandAction Command="{Binding MaximizeHeightCommand}"></i:InvokeCommandAction>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+
+        <Grid >
+         
+            <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="60"></RowDefinition>
+                </Grid.RowDefinitions>
+           
+<!-- Кнопки управленияю Свернуть, развернуть, закрыть -->
+                <WrapPanel Grid.Column="0"
+                           Grid.ColumnSpan="5" 
+                           Grid.Row="0"
+                           FlowDirection="RightToLeft"
+                           >
+               
+
+                    <Button HorizontalAlignment="Right" 
+                            Style="{StaticResource MangeButton}"  >
+                        <Button.Background>
+                            <ImageBrush 
+                                ImageSource="Assets/ic-cancel_97589.png" Stretch="Fill"></ImageBrush>
+                        </Button.Background>
+                        <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                                 <i:InvokeCommandAction Command="{Binding CloseWindowCommand}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+
+                        </i:Interaction.Triggers>
+                       
+                    </Button>
+
+                    <Button Margin="10,0"
+                            HorizontalAlignment="Center" 
+                            Style="{StaticResource MangeButton}">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Assets/up-arrow_icon-icons.com_73351.png" Stretch="Uniform"></ImageBrush>
+                        </Button.Background>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding MaximizeWindowCommand}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                </Button>
+
+                    <Button HorizontalAlignment="Left" 
+                            
+                            Style="{StaticResource MangeButton}">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Assets/angle-arrow-down_icon-icons.com_73683.png" Stretch="Uniform"></ImageBrush>
+                        </Button.Background>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding MinimizeWindowCommand}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                    <TextBlock   FontFamily="Calibri" HorizontalAlignment="Left" TextAlignment="Left"  VerticalAlignment="Bottom" Foreground="{StaticResource Color8}" Text="Finist.MyContact" FontSize="25" />
+            </WrapPanel>
+           
+                <!--Рабочая панель -->
+                <Border HorizontalAlignment="Center" CornerRadius="20" BorderThickness="0" Grid.Column="1" Grid.Row="3"  Grid.ColumnSpan="3" Background="{StaticResource Color4}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                           
+                            
+                            <ColumnDefinition Width="125"></ColumnDefinition>
+                            <ColumnDefinition Width="125"></ColumnDefinition>
+                            <ColumnDefinition Width="125"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                       
+                        <Button Style="{StaticResource DockButton}"   Margin="5,0" Grid.Column="0">
+                            <Button.Background>
+                                <ImageBrush ImageSource="Assets/notebookwithcontacts_81077.png" Stretch="Uniform" ></ImageBrush>
+                            </Button.Background>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+
+                                <i:InvokeCommandAction Command="{Binding ShowViewContactsCommand}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
+                        <Button Style="{StaticResource DockButton}"  Margin="5,0" Grid.Column="1">
+                            <Button.Background >
+                                <ImageBrush ImageSource="Assets/history-clock-button_icon-icons.com_72701.png" Stretch="Uniform"></ImageBrush>
+                            </Button.Background>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding ShowViewHistoryCommand}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
+                    <Button Grid.Column="3" Command="{Binding ShowVewFavoritesCommand}"  Style="{StaticResource DockButton}">
+                            <Button.Background>
+                                <ImageBrush ImageSource="Assets/likeblackheartbutton_79537.png" Stretch="Uniform"></ImageBrush>
+                            </Button.Background>
+                        </Button>
+                       
+                    </Grid>
+                </Border>
+<!--Переключение  элементов-->
+            <Frame x:Name="NavigationFrame" NavigationUIVisibility="Hidden" JournalOwnership="UsesParentJournal"  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="2"></Frame>
+
+            </Grid>
+
+        </Border>
+
+
+</Window>

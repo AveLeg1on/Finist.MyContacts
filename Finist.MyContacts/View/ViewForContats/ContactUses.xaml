@@ -1,0 +1,183 @@
+﻿<Page x:Class="Finist.MyContacts.View.ViewForContats.ContactUses"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Finist.MyContacts.View.ViewForContats"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      mc:Ignorable="d" 
+      xmlns:adorners="http://gu.se/Adorners"
+      d:DesignHeight="750" d:DesignWidth="800"
+      Title="ContactUses">
+
+
+    <Grid Background="{StaticResource Color1}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Ellipse Fill="{Binding ImageFill}"  Width="230" Height="220" HorizontalAlignment="Center" VerticalAlignment="Stretch" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" />
+        <Button Style="{DynamicResource RoundButton}"    Grid.Column="2" Grid.Row="1"  Command="{Binding AdddedPhotoCommand}" Content="Добавить фото" FontSize="20" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" ></Button>
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" >
+            <!--#region AllowButton -->
+            <Button  Background="Transparent" Command="{Binding SaveContactCommand}" >
+                <Button.Content>
+                    <fa:FontAwesome Icon="CheckSquareOutline" Foreground="{StaticResource Color8}" FontSize="30"></fa:FontAwesome>
+                </Button.Content>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="Gray"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <!-- #endregion -->
+            <!--#region CancellButton -->
+
+            <Button   Margin="50,0" VerticalAlignment="Center" Command="{Binding BackToContacts}" Background="Transparent" HorizontalAlignment="Center">
+                <Button.Content>
+                    <fa:FontAwesome Icon="Ban" Foreground="{StaticResource Color4}" FontSize="30"/>
+                </Button.Content>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="Gray"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="DarkGray"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <!--#endregion-->
+        </WrapPanel>
+        <!--#region Tab`s-->
+        <TabControl Grid.Row="2"  Background="Transparent" Grid.Column="0" Grid.ColumnSpan="3">
+            <TabItem Style="{DynamicResource TabItemStyle}"   Header="Контактные данные">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="80"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="80"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox  Text="{Binding Phone, Mode=TwoWay}"
+                              x:Name="TelephoneBox"  Grid.Column="0" 
+                              Grid.ColumnSpan="2" Grid.Row="0"
+                              adorners:Watermark.Text="{Binding PlaceholderMessage}" adorners:Watermark.TextStyle="{StaticResource TextBloxkAsWatermarkStyle}"
+                              
+                              Style="{StaticResource BaseTextBoxApp}" ></TextBox>
+
+
+                    <fa:FontAwesome  Grid.Row="0" Grid.Column="2" Icon="MobilePhone"  
+                                     FontSize="50" HorizontalAlignment="Center" 
+                                     VerticalAlignment="Center"></fa:FontAwesome>
+                    <TextBox Text="{Binding Email}" 
+                             x:Name="EmailBox" Grid.Column="0" 
+                             Grid.ColumnSpan="2" Grid.Row="2" 
+                             adorners:Watermark.Text="Email"  adorners:Watermark.TextStyle="{StaticResource TextBloxkAsWatermarkStyle}"
+                             Style="{StaticResource BaseTextBoxApp}"  ></TextBox>
+                    <fa:FontAwesome  Grid.Row="2" Grid.Column="2"
+                                     Icon="EnvelopeSquare" 
+                                     FontSize="50"
+                                     HorizontalAlignment="Center" VerticalAlignment="Center"></fa:FontAwesome>
+
+                    <TextBox  Text="{Binding HomePhone}" 
+                              x:Name="HomePhoneBox" Grid.Column="0" 
+                              Grid.ColumnSpan="2" Grid.Row="4" 
+                              adorners:Watermark.Text="Домашний Телефон"   adorners:Watermark.TextStyle="{StaticResource TextBloxkAsWatermarkStyle}"
+                              Style="{StaticResource BaseTextBoxApp}" ></TextBox>
+                    <fa:FontAwesome  Grid.Row="4" Grid.Column="2" Icon="Phone" Rotation="20" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center"></fa:FontAwesome>
+
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="О контакте" Style="{DynamicResource TabItemStyle}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+
+                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition Height="80"></RowDefinition>
+
+                        <RowDefinition Height="30"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Text="{Binding Name, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                             VerticalAlignment="Top"
+                             x:Name="NameBox" Grid.Row="0" Grid.Column="0"
+                             Style="{StaticResource BaseTextBoxApp}"
+                             adorners:Watermark.Text="Имя"  adorners:Watermark.TextStyle="{StaticResource TextBloxkAsWatermarkStyle}" ></TextBox>
+                    <fa:FontAwesome Grid.Column="1" Grid.Row="0"    Icon="Male"  FontSize="200" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"></fa:FontAwesome>
+                    <TextBox  x:Name="SecondnameBox" 
+                              Text="{Binding Secondname, Mode=TwoWay}" 
+                                Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" 
+                              Style="{StaticResource BaseTextBoxApp}"
+                              adorners:Watermark.Text="Отчество" adorners:Watermark.TextStyle="{StaticResource TextBloxkAsWatermarkStyle}" ></TextBox>
+                    <TextBox Grid.Row="0" Grid.Column="0" 
+                             x:Name="SurnameBox"  VerticalAlignment="Center"
+                             Text="{Binding Surename, Mode=TwoWay}"
+                             Style="{StaticResource BaseTextBoxApp}"
+                             adorners:Watermark.Text="Фамилия" adorners:Watermark.TextStyle="{StaticResource TextBloxkAsWatermarkStyle}"></TextBox>
+                    <TextBox Text="{Binding Description, Mode=TwoWay}" Grid.Row="3" Grid.Column="0" x:Name="DescriptionBox" VerticalAlignment="Top" TextWrapping="Wrap"  adorners:Watermark.Text="Примечание" Style="{StaticResource BaseTextBoxApp}"/>
+                    <fa:FontAwesome Grid.Column="0" Grid.Row="2" Icon="TextWidth" FontSize="45" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="3" Grid.Column="2" Text="Дата рождения" VerticalAlignment="Center"></TextBlock>
+                    <DatePicker SelectedDate="{Binding SeleteDateTime, Mode=TwoWay}" Text="Дата рождения" x:Name="DateBirthdayPicker"  HorizontalAlignment="Right" VerticalAlignment="Top"  Grid.Row="3" Grid.Column="2" />
+                    <fa:FontAwesome Grid.Column="2"  Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"  Icon="Calendar"   />
+
+
+
+
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+        <!--#endregion-->
+    </Grid>
+</Page>

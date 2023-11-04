@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Command\RelayCommand - Копировать.cs" />
+    <Compile Remove="Command\RelayCommand.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\angle-arrow-down_icon-icons.com_73683.png" />
+    <None Remove="Assets\history-clock-button_icon-icons.com_72701.png" />
+    <None Remove="Assets\ic-cancel_97589.png" />
+    <None Remove="Assets\likeblackheartbutton_79537.png" />
+    <None Remove="Assets\notebookwithcontacts_81077.png" />
+    <None Remove="Assets\telephone-keypad-with-ten-keys_icon-icons.com_72521.png" />
+    <None Remove="Assets\up-arrow_icon-icons.com_73351.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\angle-arrow-down_icon-icons.com_73683.png" />
+    <Resource Include="Assets\history-clock-button_icon-icons.com_72701.png" />
+    <Resource Include="Assets\ic-cancel_97589.png" />
+    <Resource Include="Assets\likeblackheartbutton_79537.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\notebookwithcontacts_81077.png" />
+    <Resource Include="Assets\telephone-keypad-with-ten-keys_icon-icons.com_72521.png" />
+    <Resource Include="Assets\up-arrow_icon-icons.com_73351.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+    <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
+    <PackageReference Include="Gu.Wpf.Adorners" Version="2.1.1" />
+    <PackageReference Include="libphonenumber-csharp" Version="8.13.23" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+    <PackageReference Include="Notification.Wpf" Version="7.0.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Command\" />
+  </ItemGroup>
+
+</Project>
