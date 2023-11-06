@@ -268,7 +268,7 @@ namespace Finist.MyContacts.ViewModel
         #region Command
         public RelayCommand SaveContactCommand => new RelayCommand(Saver);
         public RelayCommand BackToContacts => new RelayCommand(LetsBack);
-        public RelayCommand AdddedPhotoCommand => new RelayCommand(ReadToBytesAndAdd);
+        public RelayCommand AddedPhotoCommand => new RelayCommand(ReadToBytesAndAdd);
 
 
         #endregion
@@ -299,6 +299,7 @@ namespace Finist.MyContacts.ViewModel
                 }
 
                 ImageBrush _imageBrush = new ImageBrush(bitmap);
+                
                 ImageFill = _imageBrush;
             }
 
@@ -354,6 +355,7 @@ namespace Finist.MyContacts.ViewModel
                     EditContact.Email = Email;
                     EditContact.PhoneHome = HomePhone;
                     EditContact.DateBirthday = DateBirthday;
+                    EditContact.Photo= Photo;   
                     context.Contacts.Update(EditContact);
 
                     context.SaveChanges();

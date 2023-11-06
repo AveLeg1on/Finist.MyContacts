@@ -24,7 +24,7 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Ellipse Fill="{Binding ImageFill}"  Width="230" Height="220" HorizontalAlignment="Center" VerticalAlignment="Stretch" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" />
-        <Button Style="{DynamicResource RoundButton}"    Grid.Column="2" Grid.Row="1"  Command="{Binding AdddedPhotoCommand}" Content="Добавить фото" FontSize="20" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" ></Button>
+        <Button Style="{DynamicResource RoundButton}"    Grid.Column="2" Grid.Row="1"  Command="{Binding AddedPhotoCommand}" Content="Добавить фото" FontSize="20" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" ></Button>
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" >
             <!--#region AllowButton -->
             <Button  Background="Transparent" Command="{Binding SaveContactCommand}" >
