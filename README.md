@@ -7,7 +7,10 @@
 - [x] Использование функции избранное
 - [x] Статистическая информация о  дате добавления пользователей(вкладка История)
  ##  Скриншоты
- ![Finist MyContacts_RHYZdNV4m4](https://github.com/AveLeg1on/Finist.MyContacts/assets/58211377/9f81f9cc-cffe-45e1-8056-ccee4b51a040)
-![Finist MyContacts_8VIkXlJlrX](https://github.com/AveLeg1on/Finist.MyContacts/assets/58211377/bb4f6f67-2bee-4cf8-a43c-62079abba042)
-![Finist MyContacts_3OSibP7DA3](https://github.com/AveLeg1on/Finist.MyContacts/assets/58211377/73ae982d-f9ab-4eb0-a409-c7ff4c8e1ec3)
-![Finist MyContacts_XF4PPDj8iD](https://github.com/AveLeg1on/Finist.MyContacts/assets/58211377/c55a438a-0443-4c1d-998b-d63996d31e31)
+![Finist MyContacts_RHYZdNV4m4](https://github.com/AveLeg1on/Finist.MyContacts/assets/58211377/cf0a7dd0-61ea-4060-b914-327b17ad7171)
+
+![Finist MyContacts_8VIkXlJlrX](https://github.com/AveLeg1on/Finist.MyContacts/assets/58211377/ceb75e4a-28a3-416d-8306-6d311ddf3604)
+
+![Finist MyContacts_3OSibP7DA3](https://github.com/AveLeg1on/Finist.MyContacts/assets/58211377/7ac3b0c2-8abe-4f15-8737-fccc6face789)
+
+![Finist MyContacts_XF4PPDj8iD](https://github.com/AveLeg1on/Finist.MyContacts/assets/58211377/b67b9f06-5d37-46d2-b8e8-f92b52859e91)
