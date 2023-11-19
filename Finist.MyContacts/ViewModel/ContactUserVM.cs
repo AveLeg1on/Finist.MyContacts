@@ -381,13 +381,13 @@ namespace Finist.MyContacts.ViewModel
 /*var openFile = new OpenFileDialog();
    if (openFile.ShowDialog() == true)
    {
-   // 1. Прочитайте все байты из файла с изображением
+   
    byte[] fileBytes = File.ReadAllBytes(openFile.FileName);
    
-   // 2. Преобразуйте байты в строку с использованием Base64
+  
    string fileContentAsBase64 = Convert.ToBase64String(fileBytes);
    
-   // 3. Запишите эту строку в текстовый файл на рабочем столе
+   
    string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
    string outputPath = Path.Combine(desktopPath, "ImageAsBase64.txt");
    
