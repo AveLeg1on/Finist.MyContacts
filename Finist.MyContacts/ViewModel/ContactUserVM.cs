@@ -237,7 +237,7 @@ namespace Finist.MyContacts.ViewModel
             Id = item.Id;
             Photo = item.Photo;
 
-            /// Assets / StockContactPhoto.jpeg
+           
         }
         public ContactUserVM(MyINavigationService mynNavigationService)
         {
